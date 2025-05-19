@@ -124,3 +124,4 @@ A autenticação é realizada pelo Firebase Authentication, usando:
 - É necessário criar um projeto no [Firebase Console](https://console.firebase.google.com/) e preencher as variáveis no `.env`.
 - O MongoDB deve ser configurado no MongoDB Atlas com URI no `.env`.
 
+.
