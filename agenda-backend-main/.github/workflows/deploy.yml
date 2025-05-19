@@ -1,4 +1,4 @@
-name: CI - Backend
+name: CI/CD - Backend
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +23,9 @@ jobs:
 
       - name: ✅ Rodando testes (se houver)
         run: echo "Nenhum teste automatizado configurado ainda"
+
+      - name: 🚀 Disparando Deploy no Render
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl -X POST "$RENDER_DEPLOY_HOOK_URL"
