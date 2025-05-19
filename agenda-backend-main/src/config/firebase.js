@@ -1,8 +1,11 @@
 const admin = require("firebase-admin");
-const path = require("path");
 
-// Caminho absoluto para o arquivo de chave do Firebase
-const serviceAccount = require(path.resolve(__dirname, '../../firebase-service-account.json'));
+// Em ambiente local, carregue o .env
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -10,3 +13,4 @@ admin.initializeApp({
 });
 
 module.exports = admin;
+
