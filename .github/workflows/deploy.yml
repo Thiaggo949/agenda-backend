@@ -19,9 +19,11 @@ jobs:
           node-version: '18'
 
       - name: 📦 Instalando dependências
+        working-directory: agenda-backend-main
         run: npm install
 
       - name: ✅ Rodando testes (se houver)
+        working-directory: agenda-backend-main
         run: echo "Nenhum teste automatizado configurado ainda"
 
       - name: 🚀 Disparando Deploy no Render
